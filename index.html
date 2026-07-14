@@ -1,1 +1,87 @@
-<!doctype html><html><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><meta name="theme-color" content="#1f4f8a"><link rel="manifest" href="manifest.webmanifest"><link rel="stylesheet" href="styles.css"><title>Student Pickup Numbers</title></head><body><header><div><h1>Student Pickup Numbers</h1><p>Numbers stay until marked done</p></div><button id="modeBtn" class="secondary">Display Mode</button></header><main><section id="callerView"><div class="card"><label>Enter pickup number</label><div class="entry"><input id="numberInput" inputmode="numeric" placeholder="Example: 142"><button id="callBtn">Call Number</button></div><div class="actions"><button id="undoBtn" class="secondary">Undo Last</button><button id="clearBtn" class="danger">Clear All</button></div></div><div class="card"><div class="title"><h2>Active Numbers</h2><span id="countBadge">0 active</span></div><div id="activeList"></div></div><div class="card"><h2>Recently Completed</h2><div id="historyList" class="history"></div></div></section><section id="displayView" hidden><div class="toolbar"><button id="backBtn" class="secondary">Back</button><button id="fullscreenBtn">Full Screen</button><label><input id="soundToggle" type="checkbox" checked> Sound</label></div><div id="displayBoard" class="board"></div><div class="footer">Please report for pickup when your number appears.</div></section></main><script src="app.js"></script></body></html>
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
+  <meta name="theme-color" content="#173f73">
+  <link rel="manifest" href="manifest.webmanifest">
+  <link rel="stylesheet" href="styles.css">
+  <title>Union City Dismissal</title>
+</head>
+<body>
+<header>
+  <div>
+    <h1>Union City Dismissal</h1>
+    <p>Car Rider • Walk Up • To Office</p>
+  </div>
+  <button id="modeBtn" class="secondary">Display Mode</button>
+</header>
+
+<main>
+  <section id="callerView">
+    <div class="card">
+      <label for="numberInput">Enter pickup number</label>
+      <div class="entry-row">
+        <input id="numberInput" inputmode="numeric" pattern="[0-9]*" autocomplete="off" placeholder="Example: 142">
+        <select id="typeSelect" aria-label="Dismissal type">
+          <option value="car">Car Rider</option>
+          <option value="walk">Walk Up</option>
+          <option value="office">To Office</option>
+        </select>
+        <button id="callBtn">Call Number</button>
+      </div>
+      <div class="quick-actions">
+        <button id="undoBtn" class="secondary">Undo Last</button>
+        <button id="clearBtn" class="danger">Clear All</button>
+      </div>
+    </div>
+
+    <div class="card">
+      <div class="section-title">
+        <h2>Active Numbers</h2>
+        <span id="countBadge">0 active</span>
+      </div>
+
+      <div class="filter-row">
+        <button class="filter active" data-filter="all">All</button>
+        <button class="filter car" data-filter="car">Car Rider</button>
+        <button class="filter walk" data-filter="walk">Walk Up</button>
+        <button class="filter office" data-filter="office">To Office</button>
+      </div>
+
+      <div id="activeList" class="active-list"></div>
+    </div>
+
+    <div class="card">
+      <h2>Recently Completed</h2>
+      <div id="historyList" class="history-list"></div>
+    </div>
+  </section>
+
+  <section id="displayView" hidden>
+    <div class="display-toolbar">
+      <button id="backBtn" class="secondary">Back to Caller</button>
+      <button id="fullscreenBtn">Full Screen</button>
+      <label class="sound-toggle"><input id="soundToggle" type="checkbox" checked> Sound</label>
+      <select id="displayFilter">
+        <option value="all">Show All</option>
+        <option value="car">Car Rider</option>
+        <option value="walk">Walk Up</option>
+        <option value="office">To Office</option>
+      </select>
+    </div>
+
+    <div class="legend">
+      <span class="legend-item car">Car Rider</span>
+      <span class="legend-item walk">Walk Up</span>
+      <span class="legend-item office">To Office</span>
+    </div>
+
+    <div id="displayBoard" class="display-board"></div>
+    <div class="display-footer">Please report to your dismissal area when your number appears.</div>
+  </section>
+</main>
+
+<script src="app.js"></script>
+</body>
+</html>
