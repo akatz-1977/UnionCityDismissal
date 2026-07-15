@@ -1,0 +1,23 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width,initial-scale=1">
+  <title>Union City Dismissal Voice Example</title>
+  <link rel="stylesheet" href="dismissal-voice.css">
+</head>
+<body>
+  <div id="voice-controls-mount"></div>
+  <input id="numberInput" placeholder="Example: 142">
+  <button id="callButton">Call Number</button>
+
+  <script src="dismissal-voice.js"></script>
+  <script>
+    document.getElementById("callButton").addEventListener("click", function () {
+      const value = document.getElementById("numberInput").value.trim();
+      if (!value) return;
+      DismissalVoice.announce(value);
+    });
+  </script>
+</body>
+</html>

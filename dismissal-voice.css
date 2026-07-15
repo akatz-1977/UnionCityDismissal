@@ -1,0 +1,17 @@
+.dismissal-voice-controls {
+  display: flex;
+  gap: 10px;
+  flex-wrap: wrap;
+  margin: 12px 0;
+}
+.dismissal-voice-controls button {
+  border: 0;
+  border-radius: 12px;
+  padding: 12px 16px;
+  font-size: 16px;
+  font-weight: 700;
+  cursor: pointer;
+}
+#dismissalVoiceToggle {
+  color: white;
+}

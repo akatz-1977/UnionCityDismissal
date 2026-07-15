@@ -1,24 +1,20 @@
-UNION CITY DISMISSAL — VERSION 2
+UNION CITY DISMISSAL VOICE PACKAGE
 
-New in Version 2
-- Car Rider, Walk Up, and To Office categories
-- Color-coded active cards and display tiles
-- Filter buttons in the caller screen
-- Display filter for showing one category or all
-- Up to 10 active numbers
-- Numbers stay until Done is tapped
-- Recall, Undo Last, Clear All, full-screen display, optional sound
-- Recently completed history
+This package makes the app speak only the exact number or words typed in the entry field.
+It does not automatically say Car Rider, Walk Up, or To Office.
 
-How to update your existing GitHub app
-1. Unzip this package.
-2. Open the existing UnionCityDismissal GitHub repository.
-3. Upload these files to the repository root.
-4. Replace the existing files when prompted.
-5. Commit the changes.
-6. GitHub Pages will rebuild automatically at the same web address.
+ADD THESE FILES TO YOUR APP:
+- dismissal-voice.js
+- dismissal-voice.css
 
-Important
-This version synchronizes between tabs/windows on the SAME device/browser.
-It is ideal for one staff member using the caller screen and AirPlay mirroring the display.
-Separate-device real-time syncing requires a cloud database such as Firebase or Supabase.
+In the page head:
+<link rel="stylesheet" href="dismissal-voice.css">
+
+Before the closing body tag:
+<script src="dismissal-voice.js"></script>
+
+In the code that runs when Call Number is tapped, add:
+DismissalVoice.announce(number);
+
+Voice defaults to OFF. The user can turn it on with the added button.
+The Repeat Last button repeats the most recently called entry.
