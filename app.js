@@ -54,6 +54,9 @@ function callNumber(){
   save();
   render();
   playTone(type);
+  if (window.DismissalVoice) 
+
+  {DismissalVoice.announce(number}
   input.focus();
 }
 
